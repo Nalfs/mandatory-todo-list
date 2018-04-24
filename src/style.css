@@ -26,6 +26,7 @@ input[type=text] {
   h1 {
     font-family: 'Oleo Script', cursive;
     color: #fcc500;
+    padding: 5px;
   }
   ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: #A1CAF1;
@@ -35,4 +36,8 @@ input[type=text] {
  body > div > div table > thead {
     color: #fff; 
     text-align: left;
+  }
+
+  ul {
+    list-style-type: none;
   }

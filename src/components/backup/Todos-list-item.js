@@ -3,12 +3,14 @@ import React from 'react';
 export default class TodosListItems extends React.Component {
   constructor(props){
       super(props);
-
+    
       this.state = {
           isEditing: false,
           isChecked: false
       };
-      
+
+    
+      console.log("here");
   }
  
   renderActionsSection(){
@@ -25,7 +27,7 @@ export default class TodosListItems extends React.Component {
         <td>
             
             <button onClick={this.onEditClick.bind(this)}>Edit</button>
-            <button>Delete</button>
+            <button onClick={this.props.deleteTask.bind(this, this.props.task)}>Delete</button>
         </td>
     );
 
@@ -37,28 +39,29 @@ export default class TodosListItems extends React.Component {
   
     render () {
         let labelStyle={
-            'text-decoration': this.state.checked ? 'line-through':''
+            'textDecoration': this.state.checked ? 'line-through':''
           };
+
         return (
                 <tr>
                     <td>
                     <label style={labelStyle}>
-                    <input 
-                    type="checkbox"
-                    state={this.state.isChecked}
-                    onChange={this.handleChecked.bind(this)}  />
-                    {this.props.task}
+                        <input 
+                        type="checkbox"
+                        //state={this.state.isChecked}
+                        onChange={this.handleChecked.bind(this)}  />
+                        {this.props.task}
                     </label>
                     </td>
                     {this.renderActionsSection()}
                 </tr>
         );
 }
-onEditClick() {
+    onEditClick() {
     this.setState({ isEditing: true});
 
   }
-  onCancelClick() {
+    onCancelClick() {
     this.setState({ isEditing: false});
   } 
 }

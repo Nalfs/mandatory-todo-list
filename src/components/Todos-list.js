@@ -1,25 +1,52 @@
 import _ from 'lodash';
 import React from 'react';
-import TodosListHeader from './Todos-list-header';
-import TodosListItem from './Todos-list-item';
+
 
 export default class TodosList extends React.Component {
-  renderItems() {
-       const props = _.omit(this.props, 'todos');
-
-        return _.map(this.props.todos, (todo, index) => <TodosListItem key={index} {...todo} {...props} />);
-
-  }
   
   render () {
-    return (
-      <table>
-        <TodosListHeader />
-        <tr>
-        {this.renderItems()}
-        </tr>
-      </table>
-    );
+    /* const props = _.omit(this.props, 'todos'); */
+    /* let labelStyle={
+        'textDecoration': this.state.checked ? 'line-through':''
+      }; */
+    
+    /* if (this.props.todos.length > 0){
+      return (
+            <div>
+              {this.props.todos.map((item,key)=>{
+                return (
+                    <span key={key}>
+                      <input type="checkbox"/>
+                      {item.task} 
+                      <button onClick={this.props.fnDeleteTask()}>Delete</button>
+                    </span>
+                )
+              })
+              }
+            </div>
+          );
+    }
 
+    return null     */
+
+    if (this.props.todos.length > 0){
+      return (<ul>
+              {
+                this.props.todos.map((item,key)=>{
+                  return (
+                    <li key={key}>
+                     <input id={item.id} onChange={(e)=>this.props.fnHandleChecked(item.id,e)} type="checkbox"/>
+                      {item.task}
+                      <button type="button" onClick={()=>this.props.fnDeleteTask(item.id)}>Delete</button>
+                    </li>
+                  )
+                })             
+              }
+    
+              </ul>
+      );
+    }
+
+    return null    
   }
 }

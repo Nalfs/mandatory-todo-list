@@ -1,5 +1,6 @@
 
 import React from 'react';
+import TodosListItem from './Todos-list-item';
 
 
 export default class TodosList extends React.Component {
@@ -7,7 +8,7 @@ export default class TodosList extends React.Component {
   render () {
     return (
       <form onSubmit={this.handleCreate.bind(this)}>
-        <input type="text" placeholder="Chose a task" ref="createInput" required />
+        <input type="text" placeholder="Chose a task" ref="createInput"  />
         <button>Create</button>
       </form>
     );
