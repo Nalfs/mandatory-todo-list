@@ -35,9 +35,9 @@ export default class TodosList extends React.Component {
                 this.props.todos.map((item,key)=>{
                   return (
                     <li key={key}>
+                    <button type="button" onClick={()=>this.props.fnDeleteTask(item.id)}>Delete</button>
                      <input id={item.id} onChange={(e)=>this.props.fnHandleChecked(item.id,e)} type="checkbox"/>
                       {item.task}
-                      <button type="button" onClick={()=>this.props.fnDeleteTask(item.id)}>Delete</button>
                     </li>
                   )
                 })             
