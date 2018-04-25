@@ -23,13 +23,11 @@ export default class TodoApp extends React.Component {
   }
   
   handleChecked(itemId,event) {
-    /* this.setState({ checked: event.target.checked }); */
-    console.log("within handleChecked() function",itemId,event.target.checked);
+    
     let itemIndex = this.state.todos.findIndex(item => item.id === itemId);
     this.state.todos[itemIndex].isChecked = event.target.checked;
     this.setState(this.state.todos);
 
-    console.log(this.state.todos);
   }
 
   createTask(task) {
@@ -42,7 +40,6 @@ export default class TodoApp extends React.Component {
   }
 
   deleteTask(itemId){
-    /* _.remove(this.state.todos, todo => todo.task === task); */
     let newState = this.state.todos.filter(item=> item.id !== itemId);
     this.setState({ todos: newState });
   }
