@@ -5,8 +5,7 @@ import React from 'react';
 export default class TodosList extends React.Component {
   
   render () {
-
-
+  
     if (this.props.todos.length > 0){
       return (<ul>
               {
@@ -14,8 +13,11 @@ export default class TodosList extends React.Component {
                   return (
                     <li key={key}>
                     <button type="button" onClick={()=>this.props.fnDeleteTask(item.id)}>Delete</button>
-                     <input id={item.id} onChange={(e)=>this.props.fnHandleChecked(item.id,e)} type="checkbox"/>
+                    <label className={item.isChecked ? 'done' : 'notdone'}>
+                     <input id={item.id} onChange={(e)=>this.props.fnHandleChecked(item.id,e)} type="checkbox"
+                     />
                       {item.task}
+                    </label>
                     </li>
                   )
                 })             

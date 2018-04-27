@@ -42,4 +42,11 @@ input[type=text] {
     list-style-type: none;
   }
 
-  
+  .done {
+    text-decoration: line-through;
+    color:indianred;
+    font-style:italic;
+}
+.notdone {
+    text-decoration: none;
+}

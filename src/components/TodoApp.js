@@ -14,7 +14,8 @@ export default class TodoApp extends React.Component {
     this.deleteTask = this.deleteTask.bind(this);
     this.handleChecked = this.handleChecked.bind(this);
   }
- 
+  //iterera genom todos med item, om item.isChecked === false, så får den stanna i ny array. Men eftersom alla checked är true så åker dem
+  //let newState = todos.filter(item=>item.isChecked === true); så hade man enkelt istället kunnat rendera ut en ny lista med alla completed items
   handleRemove() {
     if (this.state.todos.length > 0){
       let newState = this.state.todos.filter(item=>item.isChecked === false);
@@ -27,6 +28,7 @@ export default class TodoApp extends React.Component {
     let itemIndex = this.state.todos.findIndex(item => item.id === itemId);
     this.state.todos[itemIndex].isChecked = event.target.checked;
     this.setState(this.state.todos);
+    console.log(this.state.todos);
 
   }
 
@@ -39,6 +41,7 @@ export default class TodoApp extends React.Component {
     this.setState({ todos: this.state.todos});
   }
 
+  //effektivt så låter den alla vara kvar utom den som har id itemId
   deleteTask(itemId){
     let newState = this.state.todos.filter(item=> item.id !== itemId);
     this.setState({ todos: newState });
